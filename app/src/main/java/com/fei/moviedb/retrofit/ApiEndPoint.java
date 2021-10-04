@@ -1,4 +1,4 @@
-package com.fei.moviedb.retrovit;
+package com.fei.moviedb.retrofit;
 
 public interface ApiEndPoint {
 }
