@@ -1,8 +1,10 @@
-package com.fei.moviedb;
+package com.fei.moviedb.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.fei.moviedb.R;
 
 public class MainActivity extends AppCompatActivity {
 
