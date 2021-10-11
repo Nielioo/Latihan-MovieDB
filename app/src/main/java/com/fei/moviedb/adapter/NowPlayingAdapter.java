@@ -15,22 +15,22 @@ import com.fei.moviedb.R;
 import com.fei.moviedb.helper.Const;
 import com.fei.moviedb.model.NowPlaying;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.NowPlayingViewHolder> {
 
     private Context context;
-    private ArrayList<NowPlaying.Results> nowPlayingList;
+    private List<NowPlaying.Results> nowPlayingList;
 
     public NowPlayingAdapter(Context context) {
         this.context = context;
     }
 
-    private ArrayList<NowPlaying.Results> getNowPlayingList() {
+    private List<NowPlaying.Results> getNowPlayingList() {
         return nowPlayingList;
     }
 
-    private void setNowPlayingList(ArrayList<NowPlaying.Results> nowPlayingList) {
+    public void setNowPlayingList(List<NowPlaying.Results> nowPlayingList) {
         this.nowPlayingList = nowPlayingList;
     }
 

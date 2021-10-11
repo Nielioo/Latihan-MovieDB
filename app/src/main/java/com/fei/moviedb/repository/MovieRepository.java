@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.fei.moviedb.helper.Const;
 import com.fei.moviedb.model.Movies;
+import com.fei.moviedb.model.NowPlaying;
 import com.fei.moviedb.retrofit.ApiService;
 
 import retrofit2.Call;
@@ -34,6 +35,24 @@ public class MovieRepository {
 
             @Override
             public void onFailure(Call<Movies> call, Throwable t) {
+
+            }
+        });
+
+        return result;
+    }
+
+    public MutableLiveData<NowPlaying> getNowPlayingData(){
+        final MutableLiveData<NowPlaying> result = new MutableLiveData<>();
+
+        ApiService.endPoint().getNowPlaying(Const.API_KEY).enqueue(new Callback<NowPlaying>() {
+            @Override
+            public void onResponse(Call<NowPlaying> call, Response<NowPlaying> response) {
+                result.setValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<NowPlaying> call, Throwable t) {
 
             }
         });

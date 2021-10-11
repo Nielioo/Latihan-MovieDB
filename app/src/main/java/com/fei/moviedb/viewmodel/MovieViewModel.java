@@ -8,6 +8,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.fei.moviedb.model.Movies;
+import com.fei.moviedb.model.NowPlaying;
 import com.fei.moviedb.repository.MovieRepository;
 
 public class MovieViewModel extends AndroidViewModel {
@@ -19,7 +20,7 @@ public class MovieViewModel extends AndroidViewModel {
         repository = MovieRepository.getInstance();
     }
 
-    //==Begin of viewModel get movie by id
+    //==Begin of viewModel getMovieById
 
     private MutableLiveData<Movies> resultGetMovieById = new MutableLiveData<>();
     public void setResultGetMovieById(String movieId){
@@ -29,6 +30,18 @@ public class MovieViewModel extends AndroidViewModel {
         return resultGetMovieById;
     }
 
-    //==End of viewModel get movie by id
+    //==End of viewModel getMovieById
+
+    //==Begin of viewModel getNowPlaying
+
+    private MutableLiveData<NowPlaying> resultGetNowPlaying = new MutableLiveData<>();
+    public void setResultGetNowPlaying(){
+        resultGetNowPlaying = repository.getNowPlayingData();
+    }
+    public LiveData<NowPlaying> getResultGetNowPlaying(){
+        return resultGetNowPlaying;
+    }
+
+    //==End of viewModel getNowPlaying
 
 }
