@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">MovieDB</string>
+    <string name="app_name">Ex MovieDB</string>
     <string name="btn_hit">Hit API</string>
+    <string name="img">img</string>
+    <string name="movie_title">Title</string>
+    <string name="movie_overview">Overview</string>
+    <string name="movie_releasedate">Release Date</string>
 </resources>

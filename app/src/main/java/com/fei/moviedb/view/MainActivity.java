@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.fei.moviedb.R;
+import com.fei.moviedb.helper.Const;
 import com.fei.moviedb.model.Movies;
 import com.fei.moviedb.viewmodel.MovieViewModel;
 import com.google.android.material.textfield.TextInputLayout;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 main_show_textView.setText(title);
 
                 if(!(poster_path == null)){
-                    String full_path = "http://image.tmdb.org/t/p/w500/" + poster_path;
+                    String full_path = Const.IMG_URL + poster_path;
                     Glide.with(MainActivity.this)
                             .load(full_path)
                             .into(main_show_imageView);
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         main_show_imageView = findViewById(R.id.main_show_imageView);
         main_movieId_til = findViewById(R.id.main_movieId_til);
         main_hit_button = findViewById(R.id.main_hit_button);
+
         main_hit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
