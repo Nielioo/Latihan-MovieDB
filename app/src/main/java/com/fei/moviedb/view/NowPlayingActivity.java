@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import com.fei.moviedb.R;
 import com.fei.moviedb.adapter.NowPlayingAdapter;

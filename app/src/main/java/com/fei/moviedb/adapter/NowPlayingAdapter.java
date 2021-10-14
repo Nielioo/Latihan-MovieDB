@@ -1,6 +1,7 @@
 package com.fei.moviedb.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,12 +9,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.fei.moviedb.R;
 import com.fei.moviedb.helper.Const;
 import com.fei.moviedb.model.NowPlaying;
+import com.fei.moviedb.view.MovieDetailsActivity;
 
 import java.util.List;
 
@@ -22,6 +25,7 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.No
     private Context context;
     private List<NowPlaying.Results> nowPlayingList;
 
+    //untuk intent dibawah, mewakili class adapter
     public NowPlayingAdapter(Context context) {
         this.context = context;
     }
@@ -50,6 +54,15 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.No
         Glide.with(context)
                 .load(Const.IMG_URL+results.getPoster_path())
                 .into(holder.card_poster_imageView);
+
+        holder.card_nowPlaying_cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, MovieDetailsActivity.class);
+                intent.putExtra("movie_id", String.valueOf(results.getId()));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -61,6 +74,7 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.No
 
         ImageView card_poster_imageView;
         TextView card_title_textView, card_overview_textView, card_releasedDate_textView;
+        CardView card_nowPlaying_cardView;
 
         public NowPlayingViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,6 +83,8 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.No
             card_title_textView = itemView.findViewById(R.id.card_title_textView);
             card_overview_textView = itemView.findViewById(R.id.card_overview_textView);
             card_releasedDate_textView = itemView.findViewById(R.id.card_releasedDate_textView);
+            card_nowPlaying_cardView=itemView.findViewById(R.id.card_nowPlaying_cardView);
+
         }
     }
 }
