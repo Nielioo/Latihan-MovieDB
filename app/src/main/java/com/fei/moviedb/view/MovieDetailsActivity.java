@@ -90,16 +90,19 @@ public class MovieDetailsActivity extends AppCompatActivity {
             String tagline = movies.getTagline();
             String overview = movies.getOverview();
             String releaseDate = movies.getRelease_date();
-            Integer rating = movies.getVote_count();
-            String backdrop_path = movies.getBackdrop_path().toString();
-            String poster_path = movies.getPoster_path().toString();
+            Integer rating_int = movies.getVote_count();
+            String backdrop_path = movies.getBackdrop_path().toString().trim();
+            String poster_path = movies.getPoster_path().toString().trim();
             List<Movies.Genres> genreList = movies.getGenres();
+
+            Double rating_double = new Double(rating_int);
+            rating_double = rating_double/100;
 
             detail_movieTitle_textView.setText(title);
             detail_movieTagline_textView.setText(tagline);
             detail_movieOverview_textView.setText(overview);
             detail_movieReleaseDate_textView.setText(releaseDate);
-            detail_movieRating_textView.setText(String.valueOf(rating));
+            detail_movieRating_textView.setText(String.valueOf(rating_double));
 
             if(!(backdrop_path == null)){
                 String full_path = Const.IMG_URL + backdrop_path;

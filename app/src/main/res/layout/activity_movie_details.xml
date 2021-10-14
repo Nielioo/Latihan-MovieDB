@@ -9,7 +9,7 @@
     <com.flaviofaria.kenburnsview.KenBurnsView
         android:id="@+id/detail_backdrop_imageView"
         android:layout_width="0dp"
-        android:layout_height="400dp"
+        android:layout_height="700dp"
         android:adjustViewBounds="true"
         android:contentDescription="@string/img"
         android:scaleType="centerCrop"
@@ -187,7 +187,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:gravity="center"
-        android:text="00"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
