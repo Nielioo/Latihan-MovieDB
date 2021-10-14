@@ -50,7 +50,6 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.No
         final NowPlaying.Results results = getNowPlayingList().get(position);
         holder.card_title_textView.setText(results.getTitle());
         holder.card_overview_textView.setText(results.getOverview());
-        holder.card_releasedDate_textView.setText(results.getRelease_date());
         Glide.with(context)
                 .load(Const.IMG_URL+results.getPoster_path())
                 .into(holder.card_poster_imageView);
@@ -73,7 +72,7 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.No
     public class NowPlayingViewHolder extends RecyclerView.ViewHolder {
 
         ImageView card_poster_imageView;
-        TextView card_title_textView, card_overview_textView, card_releasedDate_textView;
+        TextView card_title_textView, card_overview_textView;
         CardView card_nowPlaying_cardView;
 
         public NowPlayingViewHolder(@NonNull View itemView) {
@@ -82,7 +81,6 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.No
             card_poster_imageView = itemView.findViewById(R.id.card_poster_imageView);
             card_title_textView = itemView.findViewById(R.id.card_title_textView);
             card_overview_textView = itemView.findViewById(R.id.card_overview_textView);
-            card_releasedDate_textView = itemView.findViewById(R.id.card_releasedDate_textView);
             card_nowPlaying_cardView=itemView.findViewById(R.id.card_nowPlaying_cardView);
 
         }
