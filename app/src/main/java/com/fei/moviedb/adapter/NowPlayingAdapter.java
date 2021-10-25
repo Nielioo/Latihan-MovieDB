@@ -2,6 +2,7 @@ package com.fei.moviedb.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +11,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.fei.moviedb.R;
 import com.fei.moviedb.helper.Const;
 import com.fei.moviedb.model.NowPlaying;
-import com.fei.moviedb.view.MovieDetailsActivity;
+import com.fei.moviedb.view.activities.MovieDetailsActivity;
 
 import java.util.List;
 
@@ -57,9 +59,13 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.No
         holder.card_nowPlaying_cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, MovieDetailsActivity.class);
-                intent.putExtra("movie_id", String.valueOf(results.getId()));
-                context.startActivity(intent);
+//                Intent intent = new Intent(context, MovieDetailsActivity.class);
+//                intent.putExtra("movie_id", String.valueOf(results.getId()));
+//                context.startActivity(intent);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("movieId",String.valueOf(results.getId()));
+                Navigation.findNavController(view).navigate(R.id.action_nowPlayingFragment_to_movieDetailsFragment,bundle);
             }
         });
     }
