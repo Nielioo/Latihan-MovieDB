@@ -7,4 +7,6 @@
     <string name="movie_releasedate">Release Date</string>
     <string name="movie_tagline">Tagline</string>
     <string name="movie_releaseDate">Release Date</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
